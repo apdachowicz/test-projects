@@ -1,6 +1,6 @@
 # Demo Projects.
 
-Projects done to learn or practice concepts, or put together to demonstrate concepts to others.
+Projects to learn or practice concepts, or to demonstrate concepts to others.
 
 ## Sklearn.
 
@@ -17,7 +17,7 @@ A quick demo using sklearn pipelining for preprocessing and regression model tra
 
 Notebooks for solutions to 538's Riddlers Questions.
 
-Nate Silver's [fivethirtyeight](https://fivethirtyeight.com/) hosts a fun brain teaser section known as [The Riddler](https://fivethirtyeight.com/tag/the-riddler/). If I come across any that seem fun, and that pair well with jupyter notebooks for visualization, I'll add my solutions here! 
+Nate Silver's [fivethirtyeight](https://fivethirtyeight.com/) hosts a fun brain teaser section: [The Riddler](https://fivethirtyeight.com/tag/the-riddler/). If I come across any that seem fun, and that pair well with jupyter notebooks for visualization, I'll add my solutions here! 
 
 Riddler's included:
 ### [Can You Find The Best Dungeons & Dragons Strategy?](https://github.com/apdachowicz/test-projects/blob/master/538_Riddles/05152020_DnD.ipynb)
