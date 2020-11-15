@@ -12,6 +12,9 @@ An early notebook from my submission to the [Kaggle House Pricing Competition](h
 ### [Sklearn Pipeline Demo.](https://github.com/apdachowicz/test-projects/blob/master/sklearn/regression/sklearn_regression_pipeline_demo.ipynb)
 A quick demo using sklearn pipelining for preprocessing and regression model training.
 
+### [QuickDraw Dataset Analysis.](https://github.com/apdachowicz/test-projects/blob/master/sklearn/image_processing/quickdraw_analysis.ipynb)
+Playing around with the QuickDraw Sketches dataset (source [here](https://github.com/googlecreativelab/quickdraw-dataset)). Work in progress.
+
 ## 538 Riddles.
 
 Notebooks for solutions to 538's Riddlers Questions.
