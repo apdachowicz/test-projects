@@ -1,7 +1,6 @@
 # Demo Projects.
 
-Projects to learn or practice concepts, or to demonstrate concepts to others.
-
+This repo contains personal projects to learn or practice concepts, or to demonstrate concepts to others.
 ## Sklearn.
 
 Notebooks that focus on ML using scikit-learn or Tensorflow (with Keras).
@@ -22,3 +21,6 @@ Nate Silver's [fivethirtyeight](https://fivethirtyeight.com/) hosts a fun brain 
 Riddler's included:
 ### [Can You Find The Best Dungeons & Dragons Strategy?](https://github.com/apdachowicz/test-projects/blob/master/538_Riddles/05152020_DnD.ipynb)
 May 15, 2020. Link to article [here](https://fivethirtyeight.com/features/can-you-find-the-best-dungeons-dragons-strategy/). A fun probability exercise exploring the advantage and disadvantage rules in D&D Fifth Edition.
+
+### [Riddler Express: Jeopardy!](https://github.com/apdachowicz/test-projects/blob/master/538_Riddles/11132020_Jeopardy.ipynb)
+November 13, 2020. Link to article [here](https://fivethirtyeight.com/features/can-you-snatch-defeat-from-the-jaws-of-victory/). A probability and simulation exercise exploring different "perfect" play strategies for Jeopardy. 
