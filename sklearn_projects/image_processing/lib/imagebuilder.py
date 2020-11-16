@@ -9,21 +9,31 @@ from tqdm import tqdm_notebook as tqdm
 import warnings
 
 
-class ImageBuilder:
+class QuickDrawImageBuilder:
     """
-    Class for processing ndjson input files and converting to .png data files.
-    Assumes that input data has the form of the preprocessed quickdraw data.
-    See: https://github.com/googlecreativelab/quickdraw-dataset#preprocessed-dataset
+    Class for processing .ndjson input files from the QuickDraw dataset
+    and converting to image data.
+    Assumes that input data has the .ndjson form of the preprocessed QuickDraw data.
+    See: https://github.com/googlecreativelab/quickdraw-dataset#preprocessed-dataset for
+    more information.
+    The dataset used in the project this class was written for was downloaded from Kaggle:
+    https://www.kaggle.com/google/tinyquickdraw.
 
-    Data will be extracted to output_path/images/.
+    Data will be extracted to output_path/images/. This data will be of the image format
+    specified by the user, and defaults to .png.
 
-    Metadata will be extracted to output_path/meta/.
+    Metadata will be extracted to output_path/meta/. This metadata will be saved as a .csv
+    with the name 'meta.csv'. This metadata will contain (i) image index, (ii) image key,
+    (iii) the word (title for each image), (iv) country of the artist, (v) whether the image
+    was recognized in the original game, and (vi) the total number of strokes in the image.
 
     USAGE:
 
-    [1] ib = ImageBuilder(input_path, output_path)
+    >>> import QuickDrawImageBuilder as ImageBuilder
 
-    [2] ib.build_images()
+    >>> ib = ImageBuilder(input_path, output_path)
+
+    >>> ib.build_images()
     """
 
     def __init__(self,
@@ -35,12 +45,12 @@ class ImageBuilder:
                  ignore_unrecognized_images: bool = True):
         """
         :param input_path: path to ndjson data file.
-        :param output_path: target path for output data images. This will be created if it does not exist.
+        :param output_path: target path for output data images. This directory will be created if it does not exist.
         :param save_metadata: If true, will save metadata as output_path/meta/meta.csv.
         :param output_format: Output image format. Defaults to .png.
         :param max_images: If specified, only the first max_images images will be saved.
-        :param ignore_unrecognized_images: If True, any images that were not recognized in the source data
-        will be dropped.
+        :param ignore_unrecognized_images: If True, any images that were not recognized in the source
+         data will be dropped.
         """
         if output_format is None:
             output_format = '.png'
@@ -48,7 +58,7 @@ class ImageBuilder:
         self.input_path = input_path
         "Path to ndjson data file."
         self.output_path = output_path
-        "Target path for output data images. This will be created if it does not exist."
+        "Target path for output data images. This directory will be created if it does not exist."
         self.save_metadata = save_metadata
         "If true, will save metadata as output_path/meta/meta.csv."
         self.output_format = output_format
@@ -86,7 +96,7 @@ class ImageBuilder:
 
     def get_outputs(self):
         """
-        Convert ndjson data to binary images and save to target output directory.
+        Convert .ndjson data to binary images and save to target output directory.
 
         :return: None
         """
