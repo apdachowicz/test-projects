@@ -29,7 +29,7 @@ class QuickDrawImageBuilder:
 
     USAGE:
 
-    >>> import QuickDrawImageBuilder as ImageBuilder
+    >>> from sklearn_projects.image_processing.quickdraw.imagebuilder import QuickDrawImageBuilder as ImageBuilder
 
     >>> ib = ImageBuilder(input_path, output_path)
 
