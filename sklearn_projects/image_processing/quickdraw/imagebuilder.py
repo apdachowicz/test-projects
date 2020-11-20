@@ -40,7 +40,8 @@ class QuickDrawImageBuilder:
                  save_metadata: bool = True,
                  output_format: str = None,
                  max_images: int = None,
-                 ignore_unrecognized_images: bool = True):
+                 ignore_unrecognized_images: bool = True,
+                 image_prefix: str = 'sample'):
         """
         :param input_path: path to ndjson data file.
         :param output_path: target path for output data images. This directory will be created if it does not exist.
@@ -48,6 +49,7 @@ class QuickDrawImageBuilder:
         :param output_format: Output image format. Defaults to .png.
         :param max_images: If specified, only the first max_images images will be saved.
         :param ignore_unrecognized_images: If True, any images that were not recognized in the source
+        :param image_prefix: A prefix for each image filename. Defaults to 'sample'.
          data will be dropped.
         """
         if output_format is None:
@@ -65,6 +67,8 @@ class QuickDrawImageBuilder:
         "Max. number of images to extract."
         self.ignore_unrecognized_images = ignore_unrecognized_images
         "If True, any images that were not recognized in the source data will be dropped."
+        self.image_prefix = image_prefix
+        "A prefix for each image filename. Defaults to 'sample'."
         self.input_data = None
         "The input data read from disk. Data is read in self.read_data()."
         self.input_metadata = None
@@ -133,7 +137,9 @@ class QuickDrawImageBuilder:
                                            y[pixel + 1], x[pixel + 1])
                         drawing_image[rr, cc] = 255
                 # save output data
-                io.imsave(self.output_path + '/images/{}{}'.format(sample_id, self.output_format),
+                io.imsave(self.output_path + '/images/{}{}{}'.format(self.image_prefix,
+                                                                     sample_id,
+                                                                     self.output_format),
                           drawing_image.astype(np.uint8))
                 self.total_images_extracted += 1
         print('Saved output data to {}'.format(self.output_path))
