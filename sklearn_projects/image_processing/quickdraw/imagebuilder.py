@@ -1,8 +1,6 @@
 import os
 import numpy as np
 import ndjson
-import matplotlib.pyplot as plt
-import seaborn as sns
 import pandas as pd
 from skimage import draw, io
 from tqdm import tqdm_notebook as tqdm
