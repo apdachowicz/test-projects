@@ -3,3 +3,4 @@ __pycache__/
 datasets/
 .ipynb_checkpoints/
 /temp/
+/sklearn_projects/image_processing/figures/
