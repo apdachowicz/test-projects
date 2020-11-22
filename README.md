@@ -14,7 +14,7 @@ A quick demo using sklearn pipelining for preprocessing and regression model tra
 ### [Kaggle House Prices Competition.](https://github.com/apdachowicz/test-projects/blob/master/sklearn_projects/regression/house-prices-random-forest-regression-analysis.ipynb)
 An early notebook from my submission to the [Kaggle House Pricing Competition](https://www.kaggle.com/c/house-prices-advanced-regression-techniques). This notebook focuses more heavily on data exploration and transformation for regression.
 
-### [QuickDraw Dataset Analysis.](https://github.com/apdachowicz/test-projects/blob/master/sklearn_projects/image_processing/quickdraw_analysis.ipynb)
+### [QuickDraw Dataset Analysis.](https://github.com/apdachowicz/test-projects/tree/master/sklearn_projects/image_processing)
 Playing around with the QuickDraw Sketches dataset (data source [here](https://github.com/googlecreativelab/quickdraw-dataset)). *Work in progress!*
 
 ## 538 Riddlers.
