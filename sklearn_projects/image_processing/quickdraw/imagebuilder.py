@@ -5,6 +5,7 @@ import pandas as pd
 from skimage import draw, io
 from tqdm import tqdm_notebook as tqdm
 import warnings
+import cv2
 
 
 class QuickDrawImageBuilder:
@@ -41,7 +42,8 @@ class QuickDrawImageBuilder:
                  output_format: str = None,
                  max_images: int = None,
                  ignore_unrecognized_images: bool = True,
-                 image_prefix: str = 'sample'):
+                 image_prefix: str = 'sample',
+                 image_scale: int = 256):
         """
         :param input_path: path to ndjson data file.
         :param output_path: target path for output data images. This directory will be created if it does not exist.
@@ -50,6 +52,7 @@ class QuickDrawImageBuilder:
         :param max_images: If specified, only the first max_images images will be saved.
         :param ignore_unrecognized_images: If True, any images that were not recognized in the source
         :param image_prefix: A prefix for each image filename. Defaults to 'sample'.
+        :param image_scale: The x,y dimensions of the output images. Defaults to 256.
          data will be dropped.
         """
         if output_format is None:
@@ -75,6 +78,8 @@ class QuickDrawImageBuilder:
         "Metadata for data read from disk. Data is read in self.read_data()."
         self.total_images_extracted = 0
         "Total number of images extracted."
+        self.image_scale = image_scale
+        "The x,y dimensions of the output images. Defaults to 256."
 
         assert os.path.isfile(self.input_path)
         if os.path.isdir(self.output_path):
@@ -136,6 +141,30 @@ class QuickDrawImageBuilder:
                         rr, cc = draw.line(y[pixel], x[pixel],
                                            y[pixel + 1], x[pixel + 1])
                         drawing_image[rr, cc] = 255
+
+                ########################
+                # image processing
+                ########################
+
+                # dilate resulting image
+                dilation_kernel = np.ones((9, 9))
+                drawing_image = cv2.dilate(drawing_image,
+                                           dilation_kernel,
+                                           iterations=1)
+
+                # scale the image
+                drawing_image = cv2.resize(drawing_image,
+                                           (self.image_scale, self.image_scale),
+                                           interpolation=cv2.INTER_AREA)
+
+                # blur images to reduce hard edges
+                drawing_image = cv2.GaussianBlur(drawing_image,
+                                                 (3, 3),
+                                                 sigmaX=0)
+
+                # ensure rescaled image has pixel values on [0, 255].
+                drawing_image = drawing_image * (255 / max(drawing_image.flatten()))
+
                 # save output data
                 io.imsave(self.output_path + '/images/{}{}{}'.format(self.image_prefix,
                                                                      sample_id,
