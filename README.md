@@ -9,7 +9,7 @@ Notebooks that focus on ML using scikit and/or Tensorflow (with Keras).
 Files Included:
 
 ### [QuickDraw Dataset Analysis.](https://github.com/apdachowicz/test-projects/tree/master/sklearn_projects/image_processing)
-Playing around with the QuickDraw Sketches dataset (data source [here](https://github.com/googlecreativelab/quickdraw-dataset)). *Work in progress!*
+Playing around with the QuickDraw Sketches dataset (data source [here](https://github.com/googlecreativelab/quickdraw-dataset)). As a part of this project, I wrote a python class for extracting image files (.png's or any other type allowed by matplotlib) from the .ndjson files provided in the data source. That code is available [here](https://github.com/apdachowicz/test-projects/tree/master/sklearn_projects/image_processing/quickdraw) if you would like to use it for your quickdraw projects. *Work in progress!*
 
 ### [Sklearn Pipeline Demo.](https://github.com/apdachowicz/test-projects/blob/master/sklearn_projects/regression/sklearn_regression_pipeline_demo.ipynb)
 A quick demo using sklearn pipelining for preprocessing and regression model training.
